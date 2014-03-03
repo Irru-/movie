@@ -1,0 +1,42 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>MovieTracker</title>
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="/css/style.css">
+</head>
+	
+<body>
+
+<div id="result">
+	<table id="movie_results" class="table">
+
+		<thead>
+			<tr>
+				<td>Title</td>
+				<td>Release Date</td>
+				<td>Length (minutes)</td>
+			</tr>
+		</thead>
+
+		<tbody>		
+			<% @search_results.movies.each_with_index do |movie, i| %>
+			
+			<% if i == 0 || i % 2 == 0%>
+			<% res = "odd" %>
+			<% else res = "even" %>
+			<% end %>
+
+			
+				<tr class ="<%= res %>">					
+					<td><a href = "<%= movie.url %>"><%= movie.title %></a></td>					
+					<td><%= movie.release_date %></td>
+					<td><%= movie.length %></td>
+				</tr>
+			
+			
+			<% end %>
+		
+		</tbody>
+	</table>
+</div>

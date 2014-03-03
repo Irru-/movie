@@ -1,0 +1,35 @@
+body {
+	background-color: #746F87;	
+}
+
+#result {
+	width:1000px;
+	margin: 0 auto;
+	display: block;
+	overflow: hidden;
+	margin-top: 20px;
+	background-color: white;
+	border-radius: 20px;
+	padding: 20px;
+}
+
+thead {
+	font-weight: bold;
+}
+
+tr.odd {
+	background-color: #A69FC2;
+}
+
+tr.even {
+	background-color: #928CAB;
+}
+
+tr.odd:hover, tr.even:hover {
+	background-color: #BFAC75;
+}
+
+a {
+	color: black;
+}
+
