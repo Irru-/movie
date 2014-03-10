@@ -1,0 +1,72 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>MovieTracker</title>
+  	<link rel="stylesheet" href="/css/style.css">
+</head>
+	
+<body>
+
+<form method='POST' action='/addtodb'>
+
+<table>
+	<tr>
+		<td>Titel</td>
+		<td><input type='text' name='db[titel]' value='<%= @titel %>' readonly></td>
+	</tr>
+	<tr>
+		<td>Datum (dd-mm-yyyy)</td>
+		<td><input type='text' name='db[datum]'></td>
+	</tr>
+	<tr>
+		<td>Tijd (hh:mm)</td>
+		<td><input type='text' name='db[tijd]'></td>
+	</tr>
+	<tr>
+		<td>Zaal</td>
+		<td>
+			<select name='db[zaal]'>
+				<% 14.times do |x| %>
+					<option value="<%= (x+1) %>"><%= (x+1) %></option>
+				<% end %>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Rij</td>
+		<td><input type='text' name='db[rij]'></td>
+	</tr>
+	<tr>
+		<td>Stoel</td>
+		<td><input type='text' name='db[stoel]'></td>
+	</tr>
+	<tr>
+		<td>IMDB</td>
+		<td><input type='text' name='db[imdb]' value='<%= @link %>' readonly></td>
+	</tr>
+	<tr>
+		<td>Rating</td>
+		<td>
+			<select name='db[rating]'>
+				<% 10.times do |x| %>
+					<option value="<%= (x+1) %>"><%= (x+1) %></option>
+				<% end %>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Comments</td>
+		<td><textarea name='db[info]' cols=30 rows=4></textarea></td>
+	<tr>
+		<td>Poster</td>
+		<td><input type='text' name='db[poster]' value='<%= @img %>' readonly></td>
+	</tr>
+	<tr>
+		<td>Snacked</td>
+		<td><input type='text' name='db[snacks'></td>
+	</tr>
+</table>
+
+<input type='submit' value='Add'>
+</body>
+</html>

@@ -33,3 +33,11 @@ a {
 	color: black;
 }
 
+a:hover {
+	color: black;
+}
+
+textarea { 
+	resize: vertical;
+}
+

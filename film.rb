@@ -23,7 +23,7 @@ class Film
   
   property :id,       Serial  # Serienummer
   property :titel,    String  # American Hustle
-  property :bioscoop, String  # Pathe De Kuip
+  #property :bioscoop, String  # Pathe De Kuip
   property :datum,    Date    # 24-02-2014
   property :tijd,     Time    # 15:55
   property :zaal,     String  # 1
@@ -32,7 +32,7 @@ class Film
   property :imdb,     String  # http://www.imdb.com/title/tt1800241/?ref_=nv_sr_1
   property :rating,   Integer # aantal sterren?
   property :info,     String  # Hele gave film
-  property :poster,   String  # filespec bestandsnaam jpeg gescraped imdb
+  #property :poster,   String  # filespec bestandsnaam jpeg gescraped imdb
   property :snacks,   Integer # bedrag gesnacked :-)
   
 end
@@ -61,6 +61,36 @@ end
 
 get '/search' do
 
-
   erb :result
+end
+
+post '/add' do
+  p         = params[:submit]
+  @titel    = p["title"]
+  @length   = p["length"]
+  @img      = p["poster"]
+  @link     = p["imdb"]
+
+
+  erb :add
+end
+
+post '/addtodb' do
+ p        = params[:db]
+
+ @result = Film.create(
+  :titel  => p["titel"],
+  :datum  => p["datum"],
+  :tijd   => p["tijd"],
+  :zaal   => p["zaal"],
+  :rij    => p["rij"].to_i,
+  :stoel  => p["stoel"].to_i,
+  :imdb   => p["imdb"],
+  :rating => p["rating"].to_i,
+  :info   => p["info"],
+  :snacks => p["snacks"].to_i
+  )
+
+ erb :addtodb
+
 end

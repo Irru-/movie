@@ -16,6 +16,7 @@
 				<td>Title</td>
 				<td>Release Date</td>
 				<td>Length (minutes)</td>
+				<td>Voeg toe</td>
 			</tr>
 		</thead>
 
@@ -32,6 +33,15 @@
 					<td><a href = "<%= movie.url %>"><%= movie.title %></a></td>					
 					<td><%= movie.release_date %></td>
 					<td><%= movie.length %></td>
+					<td>
+						<form method='POST' action = '/add'>
+							<input type='hidden' name='submit[title]' 	value='<%= movie.title %>'>
+							<input type='hidden' name='submit[length]' 	value='<%= movie.length %>'>
+							<input type='hidden' name='submit[poster]' 	value='<%= movie.poster %>'>
+							<input type='hidden' name='submit[imdb]'	value='<%= movie.url %>'>
+							<input type='submit' value='Submit'>
+						</form>
+					</td>
 				</tr>
 			
 			
